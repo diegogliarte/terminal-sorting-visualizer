@@ -1,6 +1,5 @@
 import os
 
-clear = lambda: os.system('cls')
 
 def create_bars(bars, columns):
     l = len(bars)
@@ -16,3 +15,6 @@ def print_screen(bars, upper_print, columns):
     clear()
     print(upper_print)
     print(create_bars(bars, columns))
+
+def clear():
+    os.system('cls')

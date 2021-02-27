@@ -10,7 +10,6 @@ from InsertionSort import InsertionSort
 from MergeSort import MergeSort
 import terminal
 
-
 def main():
     if len(sys.argv) != 2:
         raise IndexError("Invalid arguments. Make sure it's one of these: selection, bubble, insertion, merge, quick, heap, counting, radix or bucket")
@@ -45,10 +44,14 @@ def main():
     terminal.print_screen(bars, upper_print, columns)
     sorter = sorter(bars)
     sorter.sort()
-    time.sleep(1.5)
+
+    # sys.stdout.write(f"\u001b[{len(bars) + 1}A")
+    # print("hihi")
+    time.sleep(1)
     for step in sorter.steps:
-        terminal.print_screen(step, upper_print, columns)
-        time.sleep(1/100)
+        sys.stdout.write(f"\u001b[{len(bars) + 1}A")
+        print(terminal.create_bars(step, columns))
+        time.sleep(1/1000)
 
 main()
 
