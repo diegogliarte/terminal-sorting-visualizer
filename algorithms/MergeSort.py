@@ -11,7 +11,6 @@ class MergeSort():
         left = self.sort(array[:len(array)//2])
         right = self.sort(array[len(array)//2:])
         result = self._merge(left, right)
-        self.steps.append(self.array[:])
         return result
 
     def _merge(self, left, right):
@@ -28,6 +27,7 @@ class MergeSort():
         result += left + right
         for idx, e in enumerate(result):
             self.array[first_idx + idx] = e
+            self.steps.append(self.array[:])
 
         return result
 

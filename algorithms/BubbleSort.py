@@ -1,4 +1,3 @@
-import random
 class BubbleSort():
 
     def __init__(self, array):

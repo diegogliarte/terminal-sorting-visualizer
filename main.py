@@ -4,10 +4,11 @@ import sys
 import colorama
 import random
 import time
-from SelectionSort import SelectionSort
-from BubbleSort import BubbleSort
-from InsertionSort import InsertionSort
-from MergeSort import MergeSort
+from algorithms.SelectionSort import SelectionSort
+from algorithms.BubbleSort import BubbleSort
+from algorithms.InsertionSort import InsertionSort
+from algorithms.MergeSort import MergeSort
+from algorithms.QuickSort import QuickSort
 import terminal
 
 def main():
@@ -18,7 +19,7 @@ def main():
                   "bubble": ("Bubble Sort", BubbleSort),
                   "insertion": ("Insertion Sort", InsertionSort),
                   "merge" : ("Merge Sort", MergeSort),
-                  "quick": "Quick Sort",
+                  "quick": ("Quick Sort", QuickSort),
                   "heap": "Heap Sort",
                   "counting": "Counting Sort",
                   "radix": "Radix Sort",
@@ -45,11 +46,15 @@ def main():
     sorter = sorter(bars)
     sorter.sort()
 
-    # sys.stdout.write(f"\u001b[{len(bars) + 1}A")
-    # print("hihi")
-    time.sleep(1)
+
+    steps = []
     for step in sorter.steps:
-        sys.stdout.write(f"\u001b[{len(bars) + 1}A")
+        if step not in steps:
+            steps.append(step)
+
+    time.sleep(1.5)
+    for step in steps:
+        sys.stdout.write(f"\u001b[{len(bars) + 1}A") # Moves stdout cursor to beginning of printed bars
         print(terminal.create_bars(step, columns))
         time.sleep(1/1000)
 
