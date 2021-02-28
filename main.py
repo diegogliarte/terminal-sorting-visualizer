@@ -20,44 +20,52 @@ def main():
                   "insertion": ("Insertion Sort", InsertionSort),
                   "merge" : ("Merge Sort", MergeSort),
                   "quick": ("Quick Sort", QuickSort),
-                  "heap": "Heap Sort",
-                  "counting": "Counting Sort",
-                  "radix": "Radix Sort",
-                  "bucket": "Bucket Sort",
+                  "heap": ("Heap Sort", ),
+                  "counting": ("Counting Sort", ),
+                  "radix": ("Radix Sort", ),
+                  "bucket": ("Bucket Sort", ),
                   }
 
-    if sys.argv[1] not in algorithms.keys():
+    algorithm = sys.argv[1].replace("sort", "")
+
+    if algorithm not in algorithms.keys():
         raise SyntaxError("Invalid sorting algorithm.")
 
-    terminal.clear()
-    columns, lines = os.get_terminal_size()
+    # Initialize parameters
+    columns, lines = os.get_terminal_size() # Won't work with an IDE, needs to be run in Console
     colorama.init()
 
-    algorithm, sorter = algorithms[sys.argv[1]]
+    algorithm, sorter = algorithms[algorithm]
 
     upper_left_print = "  Terminal Sorting Visualizer by Diego González Liarte"
     upper_right_print = f"Visualizing {algorithm}  "
     upper_print = f"{upper_left_print}{(columns - len(upper_left_print) - len(upper_right_print)) * ' '}{upper_right_print}\n\n"
 
-    bars = list(range(1, int(min(lines * 0.8, (columns * 0.8) / 2))))
-    random.shuffle(bars)
+    # Creates initial randomized array
+    initial_bar = list(range(1, int(min(lines * 0.8, (columns * 0.8) / 2))))
+    random.shuffle(initial_bar)
 
-    terminal.print_screen(bars, upper_print, columns)
-    sorter = sorter(bars)
+
+    terminal.print_first(upper_print, initial_bar, columns)
+
+    sorter = sorter(initial_bar)
     sorter.sort()
 
-
+    # Removes duplicates and begins creating the bars
     steps = []
+    bars = []
     for step in sorter.steps:
         if step not in steps:
             steps.append(step)
+            bars.append(terminal.create_bars(step, columns))
 
+    # Begins to print the sorting steps
     time.sleep(1.5)
-    for step in steps:
-        sys.stdout.write(f"\u001b[{len(bars) + 1}A") # Moves stdout cursor to beginning of printed bars
-        print(terminal.create_bars(step, columns))
-        time.sleep(1/1000)
 
-main()
+    for step in bars:
+        terminal.print_step(initial_bar, step)
+        time.sleep(0.001)
 
+if __name__ == '__main__':
+    main()
 

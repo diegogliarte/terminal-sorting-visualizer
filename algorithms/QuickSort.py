@@ -27,11 +27,5 @@ class QuickSort():
 
         return i + 1
 
-arr = [10, 80, 30, 90, 40, 50, 70]
-sorter = QuickSort(arr)
-sorter.sort()
-print(sorter.array)
-
-
 
 
