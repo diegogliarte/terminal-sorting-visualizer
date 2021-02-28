@@ -4,6 +4,9 @@ class InsertionSort():
         self.array = array
         self.steps = []
 
+    def __str__(self):
+        return "Insertion Sort"
+
     def sort(self):
         for i in range(1, len(self.array)):
             for j, e in enumerate(reversed(self.array[:i])):

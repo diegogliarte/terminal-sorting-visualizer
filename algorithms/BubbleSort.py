@@ -4,6 +4,9 @@ class BubbleSort():
         self.array = array
         self.steps = []
 
+    def __str__(self):
+        return "Bubble Sort"
+
     def sort(self):
         sorted_ = False
         while not sorted_:
@@ -13,4 +16,3 @@ class BubbleSort():
                     sorted_ = False
                     self.array[idx], self.array[idx + 1] = self.array[idx + 1], self.array[idx]
                     self.steps.append(self.array[:])
-

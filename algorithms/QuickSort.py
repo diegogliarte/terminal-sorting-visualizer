@@ -4,6 +4,9 @@ class QuickSort():
         self.array = array
         self.steps = []
 
+    def __str__(self):
+        return "Quick Sort"
+
     def sort(self, low=0, high=None):
         high = len(self.array) - 1 if high == None else high
         if (low > high): return
@@ -26,6 +29,3 @@ class QuickSort():
         self.steps.append(self.array[:])
 
         return i + 1
-
-
-
