@@ -1,8 +1,7 @@
-class SelectionSort():
+from algorithms.Sort import Sort
 
-    def __init__(self, array):
-        self.array = array
-        self.steps = []
+
+class SelectionSort(Sort):
 
     def __str__(self):
         return "Selection Sort"

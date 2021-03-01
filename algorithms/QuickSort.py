@@ -1,8 +1,7 @@
-class QuickSort():
+from algorithms.Sort import Sort
 
-    def __init__(self, array):
-        self.array = array
-        self.steps = []
+
+class QuickSort(Sort):
 
     def __str__(self):
         return "Quick Sort"

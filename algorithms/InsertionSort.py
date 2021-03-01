@@ -1,8 +1,7 @@
-class InsertionSort():
+from algorithms.Sort import Sort
 
-    def __init__(self, array):
-        self.array = array
-        self.steps = []
+
+class InsertionSort(Sort):
 
     def __str__(self):
         return "Insertion Sort"
