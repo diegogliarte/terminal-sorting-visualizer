@@ -16,7 +16,6 @@ class HeapSort(Sort):
             self.array[i], self.array[0] = self.array[0], self.array[i]
             self.steps.append(self.array[:])
             self._heapify(i, 0)
-        return self.array
 
     def _heapify(self, n, i):
         largest = i

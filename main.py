@@ -10,7 +10,7 @@ import argparse
 def main(algorithm):
     # Initialize parameters
     columns, lines = os.get_terminal_size()  # Won't work with an IDE, needs to be run in Console
-    initial_bar = list(range(1, int(min(lines * 0.8, (columns * 0.8) / 2))))
+    initial_bar = list(range(1, int(min(lines * 0.9, (columns * 0.9) / 2))))
     random.shuffle(initial_bar)
 
     sorter = algorithm(initial_bar)
@@ -24,8 +24,10 @@ def main(algorithm):
         if step not in steps:
             steps.append(step)
             bars.append(terminal.create_bars(step, columns))
-
+            if step == sorter.array:  # Used in cases such as HeapSort, where the algorithm continues even when the array is already sorted
+                break
     # Begins to print the sorting steps
+
     time.sleep(1.5)
     for step in bars:
         terminal.print_step(initial_bar, step)

@@ -16,6 +16,7 @@ class TestSorts(unittest.TestCase):
     ordered = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     unordered = [1, 4, 7, 5, 2, 8, 9, 3, 6]
     big = list(range(750))
+    r = [5, 3, 8, 9, 1, 4, 7, 2, 6]
     random.shuffle(big)
 
     def test_all(self):
@@ -26,7 +27,9 @@ class TestSorts(unittest.TestCase):
             self._test_sorts(sorter)
             print(f"{sorter} ran in {time.time() - tic} s")
 
-        self.assertTrue(True)  # So the last print can be printed nicely
+        # So the last print can be printed nicely
+        time.sleep(1 * 10 ** -10)
+        self.assertTrue(True)
 
     def _test_sorts(self, sorter):
         for k, v in vars(TestSorts).items():
