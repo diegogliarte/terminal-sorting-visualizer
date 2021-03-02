@@ -6,12 +6,15 @@ class MergeSort(Sort):
     def __str__(self):
         return "Merge Sort"
 
-    def sort(self, array=None):
+    def sort(self):
+        self._recursive()
+
+    def _recursive(self, array=None):
         array = array or self.array
         if len(array) <= 1: return array
 
-        left = self.sort(array[:len(array) // 2])
-        right = self.sort(array[len(array) // 2:])
+        left = self._recursive(array[:len(array) // 2])
+        right = self._recursive(array[len(array) // 2:])
         result = self._merge(left, right)
         return result
 

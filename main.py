@@ -34,10 +34,10 @@ def main(algorithm):
         time.sleep(0.001)
 
 
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    algorithms = [algorithm.lower() for algorithm in vars(Algorithms) if algorithm.isupper()]
-
+    algorithms = Algorithms.get_algorithms()
     parser.add_argument("algorithm", help="Visualizes said algorithm", choices=algorithms)
     args = parser.parse_args()
     algorithm = vars(args)["algorithm"].upper()  # TODO accept "quick" and "quicksort"

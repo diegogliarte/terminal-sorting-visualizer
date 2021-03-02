@@ -1,12 +1,8 @@
 import unittest
 import random
 import time
-from algorithms.SelectionSort import SelectionSort
-from algorithms.BubbleSort import BubbleSort
-from algorithms.InsertionSort import InsertionSort
-from algorithms.MergeSort import MergeSort
-from algorithms.QuickSort import QuickSort
-from algorithms.HeapSort import HeapSort
+from algorithms.Algorithms import Algorithms
+
 
 
 class TestSorts(unittest.TestCase):
@@ -20,12 +16,11 @@ class TestSorts(unittest.TestCase):
     random.shuffle(big)
 
     def test_all(self):
-        algorithms = [SelectionSort, BubbleSort, InsertionSort, MergeSort, QuickSort, HeapSort]
-        for algorithm in algorithms:
+        for algorithm in Algorithms.get_algorithms().values():
             sorter = algorithm()
             tic = time.time()
             self._test_sorts(sorter)
-            print(f"{sorter} ran in {time.time() - tic} s")
+            print(f"{sorter} succeeded in {time.time() - tic} s")
 
         # So the last print can be printed nicely
         time.sleep(1 * 10 ** -10)
