@@ -11,16 +11,18 @@ class TestSorts(unittest.TestCase):
     pair = [1, 0]
     ordered = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     unordered = [1, 4, 7, 5, 2, 8, 9, 3, 6]
-    big = list(range(750))
+    big = list(range(700))
     r = [5, 3, 8, 9, 1, 4, 7, 2, 6]
     random.shuffle(big)
 
     def test_all(self):
+        special_algorithms = [Algorithms.STALIN]
         for algorithm in Algorithms.get_algorithms().values():
-            sorter = algorithm()
-            tic = time.time()
-            self._test_sorts(sorter)
-            print(f"{sorter} succeeded in {time.time() - tic} s")
+            if algorithm not in special_algorithms:
+                sorter = algorithm()
+                tic = time.time()
+                self._test_sorts(sorter)
+                print(f"{sorter} succeeded in {time.time() - tic} s")
 
         # So the last print can be printed nicely
         time.sleep(1 * 10 ** -10)

@@ -5,6 +5,7 @@ from algorithms.MergeSort import MergeSort
 from algorithms.QuickSort import QuickSort
 from algorithms.HeapSort import HeapSort
 from algorithms.CountingSort import CountingSort
+from algorithms.StalinSort import StalinSort
 
 class Algorithms():
     SELECTION = SelectionSort
@@ -14,6 +15,7 @@ class Algorithms():
     QUICK = QuickSort
     HEAP = HeapSort
     COUNTING = CountingSort
+    STALIN = StalinSort
 
     @staticmethod
     def get_algorithms():
