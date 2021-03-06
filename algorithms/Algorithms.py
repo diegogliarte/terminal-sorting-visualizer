@@ -6,6 +6,8 @@ from algorithms.QuickSort import QuickSort
 from algorithms.HeapSort import HeapSort
 from algorithms.CountingSort import CountingSort
 from algorithms.StalinSort import StalinSort
+from algorithms.RadixSort import RadixSort
+
 
 class Algorithms():
     SELECTION = SelectionSort
@@ -15,6 +17,7 @@ class Algorithms():
     QUICK = QuickSort
     HEAP = HeapSort
     COUNTING = CountingSort
+    RADIX = RadixSort
     STALIN = StalinSort
 
     @staticmethod
