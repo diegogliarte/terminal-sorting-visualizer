@@ -7,6 +7,7 @@ from algorithms.HeapSort import HeapSort
 from algorithms.CountingSort import CountingSort
 from algorithms.StalinSort import StalinSort
 from algorithms.RadixSort import RadixSort
+from algorithms.BucketSort import BucketSort
 
 
 class Algorithms():
@@ -19,6 +20,7 @@ class Algorithms():
     COUNTING = CountingSort
     RADIX = RadixSort
     STALIN = StalinSort
+    BUCKET = BucketSort
 
     @staticmethod
     def get_algorithms():
