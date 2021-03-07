@@ -8,6 +8,7 @@ from algorithms.CountingSort import CountingSort
 from algorithms.StalinSort import StalinSort
 from algorithms.RadixSort import RadixSort
 from algorithms.BucketSort import BucketSort
+from algorithms.BongoSort import BongoSort
 
 
 class Algorithms():
@@ -21,8 +22,8 @@ class Algorithms():
     RADIX = RadixSort
     STALIN = StalinSort
     BUCKET = BucketSort
+    BONGO = BongoSort
 
     @staticmethod
     def get_algorithms():
-        return { k.lower() : v for k, v in vars(Algorithms).items() if k.isupper() }
-
+        return {k.lower(): v for k, v in vars(Algorithms).items() if k.isupper()}

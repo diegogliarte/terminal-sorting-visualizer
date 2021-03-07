@@ -4,7 +4,6 @@ import time
 from algorithms.Algorithms import Algorithms
 
 
-
 class TestSorts(unittest.TestCase):
     empty = []
     single = [1]
@@ -16,7 +15,7 @@ class TestSorts(unittest.TestCase):
     random.shuffle(big)
 
     def test_all(self):
-        special_algorithms = [Algorithms.STALIN]
+        special_algorithms = [Algorithms.STALIN, Algorithms.BONGO]
         for algorithm in Algorithms.get_algorithms().values():
             if algorithm not in special_algorithms:
                 sorter = algorithm()

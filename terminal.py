@@ -1,6 +1,6 @@
 import os
 import sys
-from functools import lru_cache
+
 
 def create_bars(bars, columns):
     l = len(bars)
@@ -12,6 +12,7 @@ def create_bars(bars, columns):
         message += "\n"
     return message
 
+
 def print_first(sorter, bars, columns):
     upper_left_print = "  Terminal Sorting Visualizer by Diego González Liarte"
     upper_right_print = f"Visualizing {sorter}  "
@@ -21,8 +22,9 @@ def print_first(sorter, bars, columns):
     print(upper_print)
     print(create_bars(bars, columns))
 
-def print_step(initial_bar, step):
-    sys.stdout.write(f"\u001b[{len(initial_bar) + 1}A")  # Moves stdout cursor to beginning of printed bars
+
+def print_step(step, length):
+    sys.stdout.write(f"\u001b[{length}A")  # Moves stdout cursor to beginning of printed bars
     print(step)
 
 

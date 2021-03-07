@@ -17,5 +17,3 @@ class StalinSort(Sort):
                 self.steps.append(self.array[:])
             else:
                 previous = self.array[idx]
-
-

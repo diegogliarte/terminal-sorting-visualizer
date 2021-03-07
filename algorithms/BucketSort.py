@@ -1,5 +1,4 @@
 from algorithms.Sort import Sort
-from algorithms.InsertionSort import InsertionSort
 
 
 class BucketSort(Sort):
@@ -8,6 +7,7 @@ class BucketSort(Sort):
         return "Bucket Sort"
 
     def sort(self):
+        if len(self.array) < 2: return
         n = 5
         max_ = max(self.array)
         min_ = min(self.array)
