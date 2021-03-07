@@ -8,7 +8,5 @@ Every single algorithm has been modified by me to be the most "pythonic". That m
 
 The current available algorithms are: selection, insertion, merge, quick, heap, counting, radix and bucket, along to special algorithms, stalin and bongo sorts.
 
-In order to visualize algorithms such as bucket I've had to take some poetic license.
+In order to visualize algorithms such as bucket I've had to taken some poetic license.
 
-Window being resized
-![Window resizing](https://media.giphy.com/media/n1KQriSy0qNJBx7YO0/giphy.gif)
