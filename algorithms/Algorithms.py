@@ -20,8 +20,8 @@ class Algorithms():
     HEAP = HeapSort
     COUNTING = CountingSort
     RADIX = RadixSort
-    STALIN = StalinSort
     BUCKET = BucketSort
+    STALIN = StalinSort
     BONGO = BongoSort
 
     @staticmethod
